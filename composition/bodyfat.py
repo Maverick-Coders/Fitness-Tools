@@ -34,9 +34,10 @@ class GenericCalculator (object):
 
     def siri(self, body_density):
         """ Most popular and generic body density to bodyfat conversion equation.
-            :param body_density: the results yielded from a body density equation.
-            :rtype float
-            :returns body_fat
+
+        :param body_density: the results yielded from a body density equation.
+        :rtype: float
+        :returns: body_fat
 
         """
         body_fat = (495 / body_density) - 450
@@ -46,8 +47,8 @@ class GenericCalculator (object):
         # TODO add description
         """
             :param body_density: the results yielded from a body density equation.
-            :rtype float
-            :returns body_fat
+            :rtype: float
+            :returns: body_fat
 
         """
         body_fat = (457 / body_density) - 414.2
@@ -56,9 +57,9 @@ class GenericCalculator (object):
     def schutte(self, body_density):
         # TODO add description
         """
-            :param body_density: the results yielded from a body density equation.
-            :rtype float
-            :returns body_fat
+        :param body_density: the results yielded from a body density equation.
+        :rtype: float
+        :returns: body_fat
 
         """
         body_fat = (437.4 / body_density) - 392.8
@@ -67,9 +68,9 @@ class GenericCalculator (object):
     def wagner(self, body_density):
         # TODO add description
         """
-            :param body_density: the results yielded from a body density equation.
-            :rtype float
-            :returns body_fat
+        :param body_density: the results yielded from a body density equation.
+        :rtype: float
+        :returns: body_fat
 
         """
         body_fat = (486 / body_density) - 439
@@ -78,9 +79,9 @@ class GenericCalculator (object):
     def ortiz(self, body_density):
         # TODO add description
         """
-            :param body_density: the results yielded from a body density equation
-            :rtype float
-            :returns body_fat
+        :param body_density: the results yielded from a body density equation
+        :rtype: float
+        :returns: body_fat
 
         """
         body_fat = (483.2 / body_density) - 436.9
@@ -88,11 +89,14 @@ class GenericCalculator (object):
 
 
 class DurninWomersley(GenericCalculator):
-    """Uses the Durnin Wormersley equation to calculate body density
-       use triceps, biceps, subscapular, and suprailliac skinfold measurements.
+    """Uses the Durnin Wormersley equation to calculate body density.
+       Use triceps, biceps, subscapular, and suprailliac skinfold measurements.
+
        :param age: Age as a positive, whole number
        :param sex: Sex either 'male' or 'female' case insensative.
-       :param *args: A list of positive, whole numbers reflected as skinfold measurements in millimeters."""
+       :param *args: A list of positive, whole numbers reflected as skinfold measurements in millimeters.
+
+    """
     def __init__(self, age, sex, *args):
         super(DurninWomersley, self).__init__(age, sex, *args)
 
@@ -101,8 +105,9 @@ class DurninWomersley(GenericCalculator):
 
     def body_density(self):
         """ Converts params age, sex, and skinfolds to body density.
-            :rtype float
-            :returns body_density
+
+        :rtype: float
+        :returns: body_density
 
         """
         if self.sex == 'male':
@@ -138,9 +143,12 @@ class DurninWomersley(GenericCalculator):
 class JacksonPollock7Site(GenericCalculator):
     """Uses the Jackson Pollock 7 site  equation to calculate body density.
        Use chest, axilla, tricep, subscapular, abdominal, suprailiac, and thigh  measurements.
+
        :param age: Age as a positive, whole number
        :param sex: Sex either 'male' or 'female' case insensative.
-       :param *args: A list of positive, whole numbers reflected as skinfold measurements in millimeters."""
+       :param *args: A list of positive, whole numbers reflected as skinfold measurements in millimeters.
+
+    """
 
     def __init__(self, age, sex, *args):
         super(JacksonPollock7Site, self).__init__(age, sex, *args)
@@ -150,8 +158,9 @@ class JacksonPollock7Site(GenericCalculator):
 
     def body_density(self):
         """ Converts params age, sex, and skinfolds to body density.
-            :rtype float
-            :returns body_density
+
+        :rtype: float
+        :returns: body_density
 
         """
         if self.sex == 'male':
@@ -165,10 +174,11 @@ class JacksonPollock7Site(GenericCalculator):
 
 class JacksonPollock4Site(GenericCalculator):
     """Uses the Jackson Pollock 4 site equation to calculate body fat. Use abdominal, triceps, thigh, and suprailiac skinfolds.
-           :param age: Age as a positive, whole number
-           :param *args: A list of positive, whole numbers reflected as skinfold measurements in millimeters.
 
-        """
+    :param age: Age as a positive, whole number
+    :param *args: A list of positive, whole numbers reflected as skinfold measurements in millimeters.
+
+    """
     def __init__(self, age, sex, *args):
         super(JacksonPollock4Site, self).__init__(age, sex, *args)
 
@@ -177,8 +187,9 @@ class JacksonPollock4Site(GenericCalculator):
 
     def body_fat(self):
         """ Converts params age, sex, and skinfolds directly to body fat.
-            :rtype float
-            :returns body_fat
+
+        :rtype: float
+        :returns: body_fat
 
         """
         if self.sex == 'male':
@@ -195,10 +206,11 @@ class JacksonPollock4Site(GenericCalculator):
 class JacksonPollock3Site(GenericCalculator):
     """Uses the Jackson Pollock 3 site equation to calculate body density.
        Use chest, triceps, and subscapular skinfolds for men and  triceps, thigh and suprailiac for women.
+
        :param age: Age as a positive, whole number
        :param *args: A list of positive, whole numbers reflected as skinfold measurements in millimeters.
 
-        """
+    """
     def __init__(self, age, sex, *args):
         super(JacksonPollock3Site, self).__init__(age, sex, *args)
 
@@ -206,7 +218,13 @@ class JacksonPollock3Site(GenericCalculator):
             raise ValueError('This equation requires 3 skinfold measurements chest, triceps and subscapular for men and triceps, thigh and suprailiac in women.')
 
     def body_density(self):
-        if self.sex =='male':
+        """ Converts params age, sex, and skinfolds to body density.
+
+        :rtype: float
+        :returns: body_density
+
+        """
+        if self.sex == 'male':
             body_density = (1.10938 - (0.0008267 * self.sum_folds) +
                             (0.0000055 * self.square_folds) - (0.000244 * self.age))
         else:
