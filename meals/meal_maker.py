@@ -54,8 +54,7 @@ class MakeMeal(object):
         self.protein_percent = protein_percent
         self.carb_percent = carb_percent
 
-        """These set the optimal caloric range and macronitriant ratios if the
-        correct parameters are passed."""
+        # These set the optimal caloric range and macronitriant ratios if the correct parameters are passed.
 
         self._check_body_type()
         self._set_optimum_calories()
@@ -173,6 +172,7 @@ class MakeMeal(object):
     def daily_requirements(self):
         """
         Returns a dictionary of recommended calories and macronutrients for the day.
+
         :return: daily_requirements
         :rtype: dict
 
@@ -194,6 +194,7 @@ class MakeMeal(object):
     def make_meal(self, number_meals):
         """
         Returns a dictionary of recommended calories and macronutrients for one meal.
+
         :param number_meals:
         :type number_meals: int
         :return: meal
