@@ -1,6 +1,7 @@
 from exercise import rm_estimator
 import pytest
 
+
 class TestRMCalculator(object):
 
     @pytest.fixture(params=['', '20', 'twenty', -20, 21])
