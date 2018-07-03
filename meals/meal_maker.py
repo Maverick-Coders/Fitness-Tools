@@ -56,36 +56,48 @@ class MakeMeal(object):
 
         # These set the optimal caloric range and macronitriant ratios if the correct parameters are passed.
 
+        self._check_weight()
         self._check_body_type()
         self._set_optimum_calories()
         self._check_macronutrient_percentages()
+
+    # TODO Add _check_weight() int
+
+    def _check_weight(self):
+        if isinstance(self.weight, int) is False or self.weight <= 0:
+            raise ValueError('Weight must be a positive, whole number')
+
+    #TODO Add check calorie for int
+
+
 
     def _check_body_type(self):
 
         """If valid body_type is passed; set the ideal fat_percent,
         protein_percent, and carb_percent in __init__."""
 
-        if self.body_type.casefold() == 'mesomorph':
-            self.fat_percent = 0.3
-            self.protein_percent = 0.3
-            self.carb_percent = 0.4
+        if self.body_type is not None:
 
-        elif self.body_type.casefold() == 'ectomorph':
-            self.fat_percent = 0.2
-            self.protein_percent = 0.25
-            self.carb_percent = 0.55
+            if self.body_type.casefold() == 'mesomorph':
+                self.fat_percent = 0.3
+                self.protein_percent = 0.3
+                self.carb_percent = 0.4
 
-        elif self.body_type.casefold() == 'endomorph':
-            self.fat_percent = 0.4
-            self.protein_percent = 0.35
-            self.carb_percent = 0.25
+            elif self.body_type.casefold() == 'ectomorph':
+                self.fat_percent = 0.2
+                self.protein_percent = 0.25
+                self.carb_percent = 0.55
 
-        elif self.body_type is None:
+            elif self.body_type.casefold() == 'endomorph':
+                self.fat_percent = 0.4
+                self.protein_percent = 0.35
+                self.carb_percent = 0.25
 
-            self.body_type = None
+            elif self.body_type is None:
+                self.body_type = None
 
-        else:
-            raise ValueError("Please enter a valid body type: 'endomorph', 'ectomorph', 'mesomorph', or set body_type to None")
+            else:
+                raise ValueError("Please enter a valid body type: 'endomorph', 'ectomorph', 'mesomorph', or set body_type to None")
 
     def _set_optimum_calories(self):
         """If valid activity_level and goals is passed; set the ideal min_cal and max_cal in __init__. """
