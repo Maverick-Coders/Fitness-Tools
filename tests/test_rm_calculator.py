@@ -5,12 +5,12 @@ import pytest
 class TestRMCalculator(object):
 
     @pytest.fixture(params=['', '20', 'twenty', -20, 21])
-    def value_error_reps(self):
-        pass
+    def value_error_reps(self, request):
+        return request.param
 
     @pytest.fixture(params=['', 'twenty', -20, 100.3, 100])
-    def value_error_weight(self):
-        pass
+    def value_error_weight(self, request):
+        return request.param
 
     def test_desired_reps_raise_value_error(self, value_error_reps):
         with pytest.raises(ValueError, message="Expected ValueError"):
@@ -33,4 +33,3 @@ class TestRMCalculator(object):
                                ])
     def test_estimations(self, current_weight, current_reps, desired_reps, base, expected):
         assert rm_estimator.RM_Estimator(current_weight, current_reps, desired_reps).estimate_weight(base=base) == pytest.approx(expected)
-
