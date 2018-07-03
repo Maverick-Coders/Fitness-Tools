@@ -69,8 +69,6 @@ class MakeMeal(object):
 
     #TODO Add check calorie for int
 
-
-
     def _check_body_type(self):
 
         """If valid body_type is passed; set the ideal fat_percent,
@@ -101,45 +99,45 @@ class MakeMeal(object):
 
     def _set_optimum_calories(self):
         """If valid activity_level and goals is passed; set the ideal min_cal and max_cal in __init__. """
-        if self.activity_level.casefold() == 'sedintarty' and self.goal.casefold() == 'weight_loss':
-            self.min_cal = 10
-            self.max_cal = 12
-        elif self.activity_level.casefold() == 'sedentary' and self.goal.casefold() == 'maintenance':
-            self.min_cal = 12
-            self.max_cal = 14
-        elif self.activity_level.casefold() == 'sedentary' and self.goal.casefold() == 'weight_gain':
-            self.min_cal = 16
-            self.max_cal = 18
-        elif self.activity_level.casefold() == 'moderate' and self.goal.casefold() == 'weight_loss':
-            self.min_cal = 12
-            self.max_cal = 14
-        elif self.activity_level.casefold() == 'moderate' and self.goal.casefold() == 'maintenance':
-            self.min_cal = 14
-            self.max_cal = 16
-        elif self.activity_level.casefold() == 'moderate' and self.goal.casefold() == 'weight_gain':
-            self.min_cal = 18
-            self.max_cal = 20
-        elif self.activity_level.casefold() == 'very' and self.goal.casefold() == 'weight_loss':
-            self.min_cal = 14
-            self.max_cal = 16
-        elif self.activity_level.casefold() == 'very' and self.goal.casefold() == 'maintenance':
-            self.min_cal = 16
-            self.max_cal = 18
-        elif self.activity_level.casefold() == 'very' and self.goal.casefold() == 'weight_gain':
-            self.min_cal = 20
-            self.max_cal = 22
-        elif self.activity_level is None and self.goal is None:
-            self.activity_level = None
-            self.goal = None
-        else:
-            raise ValueError("Please enter a valid goal; 'weight_loss', 'maintenance', 'weight_gain' or activity_level; 'sedentary', 'moderate', or 'very' alternatively, set these parameters to None.")
+            
+        if self.activity_level is not None and self.goal is not None:
+
+            if self.activity_level.casefold() == 'sedintarty' and self.goal.casefold() == 'weight_loss':
+                self.min_cal = 10
+                self.max_cal = 12
+            elif self.activity_level.casefold() == 'sedentary' and self.goal.casefold() == 'maintenance':
+                self.min_cal = 12
+                self.max_cal = 14
+            elif self.activity_level.casefold() == 'sedentary' and self.goal.casefold() == 'weight_gain':
+                self.min_cal = 16
+                self.max_cal = 18
+            elif self.activity_level.casefold() == 'moderate' and self.goal.casefold() == 'weight_loss':
+                self.min_cal = 12
+                self.max_cal = 14
+            elif self.activity_level.casefold() == 'moderate' and self.goal.casefold() == 'maintenance':
+                self.min_cal = 14
+                self.max_cal = 16
+            elif self.activity_level.casefold() == 'moderate' and self.goal.casefold() == 'weight_gain':
+                self.min_cal = 18
+                self.max_cal = 20
+            elif self.activity_level.casefold() == 'very' and self.goal.casefold() == 'weight_loss':
+                self.min_cal = 14
+                self.max_cal = 16
+            elif self.activity_level.casefold() == 'very' and self.goal.casefold() == 'maintenance':
+                self.min_cal = 16
+                self.max_cal = 18
+            elif self.activity_level.casefold() == 'very' and self.goal.casefold() == 'weight_gain':
+                self.min_cal = 20
+                self.max_cal = 22
+            else:
+                raise ValueError("Please enter a valid goal; 'weight_loss', 'maintenance', 'weight_gain' or activity_level; 'sedentary', 'moderate', or 'very' alternatively, set these parameters to None.")
 
     def _check_macronutrient_percentages(self):
 
         """Checks if the sum of macronuitrient percentages equal one."""
-
-        if self.fat_percent + self.protein_percent + self.carb_percent != 1:
-            raise ValueError('The sum of fat_percent, protein_percent, and carb_percent must equal 1')
+        if self.fat_percent is not None and self.protein_percent is not None and self.carb_percent is not None:
+            if self.fat_percent + self.protein_percent + self.carb_percent != 1:
+                raise ValueError('The sum of fat_percent, protein_percent, and carb_percent must equal 1')
 
     def daily_min_calories(self):
         """Returns the total daily minimum calories."""
