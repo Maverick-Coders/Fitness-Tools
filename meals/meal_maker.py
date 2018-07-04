@@ -91,9 +91,6 @@ class MakeMeal(object):
                 self.protein_percent = 0.35
                 self.carb_percent = 0.25
 
-            elif self.body_type is None:
-                self.body_type = None
-
             else:
                 raise ValueError("Please enter a valid body type: 'endomorph', 'ectomorph', 'mesomorph', or set body_type to None")
 
@@ -133,14 +130,14 @@ class MakeMeal(object):
                 raise ValueError("Please enter a valid goal; 'weight_loss', 'maintenance', 'weight_gain' or activity_level; 'sedentary', 'moderate', or 'very' alternatively, set these parameters to None.")
 
     def _check_macronutrient_percentages(self):
-
         """Checks if the sum of macronuitrient percentages equal one."""
-        #TODO Correct the outer if loop
+
         if self.fat_percent is not None and self.protein_percent is not None and self.carb_percent is not None:
             if self.fat_percent + self.protein_percent + self.carb_percent != 1:
                 raise ValueError('The sum of fat_percent, protein_percent, and carb_percent must equal 1')
         else:
             raise ValueError('Kwags fat_percent, protein_percent, and carb_percent must have a value')
+    
     def daily_min_calories(self):
         """Returns the total daily minimum calories."""
         min_calories = self.weight * self.min_cal
