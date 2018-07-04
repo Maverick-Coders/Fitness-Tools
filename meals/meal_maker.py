@@ -135,10 +135,12 @@ class MakeMeal(object):
     def _check_macronutrient_percentages(self):
 
         """Checks if the sum of macronuitrient percentages equal one."""
+        #TODO Correct the outer if loop
         if self.fat_percent is not None and self.protein_percent is not None and self.carb_percent is not None:
             if self.fat_percent + self.protein_percent + self.carb_percent != 1:
                 raise ValueError('The sum of fat_percent, protein_percent, and carb_percent must equal 1')
-
+        else:
+            raise ValueError('Kwags fat_percent, protein_percent, and carb_percent must have a value')
     def daily_min_calories(self):
         """Returns the total daily minimum calories."""
         min_calories = self.weight * self.min_cal
