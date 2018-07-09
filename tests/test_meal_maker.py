@@ -55,6 +55,19 @@ class TestMealMaker(object):
         with pytest.raises(ValueError, message="Expected Value Error"):
             meal_maker.MakeMeal(value_error_check_weight)
 
+    @pytest.mark.xfail(raises=AttributeError)
+    @pytest.mark.parametrize("activity_level, goal",
+                            [
+                                ('sedintary', 'w_l'),
+                                ('moderate', ''),
+                                ('very', 100),
+                                (50, 'weight_loss'),
+                                ('', 'maintenance'),
+                                ('vry', 'weight_gain'),
+                            ])
+    def test_set_optimum_calories_raises_value_error(self, activity_level, goal):
+        with pytest.raises(ValueError, message="Expected ValueError"):
+            meal_maker.MakeMeal(150, activity_level=activity_level, goal=goal)
 
     # Test assigned macronutrient percentages by body type
 
