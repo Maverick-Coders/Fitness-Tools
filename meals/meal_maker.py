@@ -68,7 +68,7 @@ class MakeMeal(object):
                 raise ValueError('Weight must be a positive integer.')
 
         else:
-            raise TypeError('Param weight must by type int.')
+            raise TypeError('Param weight must be type int.')
 
     #TODO Add check calorie for int
 
