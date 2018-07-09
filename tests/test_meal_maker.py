@@ -97,3 +97,18 @@ class TestMealMaker(object):
                             ])
     def test_carb_percent(self, body_type, expected):
         assert meal_maker.MakeMeal(150, body_type=body_type).carb_percent == expected
+
+    @pytest.mark.parametrize("body_type, activity_level, goal, expected_min_cal",
+                            [
+                                ('mesomorph', 'sedintary', 'weight_loss', 10),
+                                ('mesomorph','sedintary', 'maintenance', 12),
+                                ('mesomorph','sedintary', 'weight_gain', 16),
+                                ('endomorph', 'moderate', 'weight_loss', 12),
+                                ('endomorph','moderate', 'maintenance', 14),
+                                ('endomorph','moderate', 'weight_gain', 18),
+                                ('ectomorph', 'very', 'weight_loss', 14),
+                                ('ectomorph','very', 'maintenance', 16),
+                                ('ectomorph','very', 'weight_gain', 20),
+                            ])
+    def test_expected_min_cal(self, body_type, activity_level, goal, expected_min_cal):
+        assert meal_maker.MakeMeal(150, body_type=body_type, activity_level=activity_level, goal=goal).min_cal == expected_min_cal
