@@ -61,11 +61,14 @@ class MakeMeal(object):
         self._set_optimum_calories()
         self._check_macronutrient_percentages()
 
-    # TODO Add _check_weight() int
-
     def _check_weight(self):
-        if isinstance(self.weight, int) is False or self.weight <= 0:
-            raise ValueError('Weight must be a positive, whole number')
+
+        if isinstance(self.weight, int) is True:
+            if self.weight <=0:
+                raise ValueError('Weight must be a positive integer.')
+
+        else:
+            raise TypeError('Param weight must by type int.')
 
     #TODO Add check calorie for int
 

@@ -39,6 +39,23 @@ class TestMealMaker(object):
         with pytest.raises(ValueError, message="Expected ValueError"):
             meal_maker.MakeMeal(150, body_type=None, fat_percent=fat_percent, carb_percent=carb_percent, protein_percent=protein_percent)
 
+    @pytest.fixture(params=[-150, 0])
+    def value_error_check_weight(self, request):
+        return request.param
+
+    @pytest.fixture(params=['', 'one-hundred', 150.5, 100.0])
+    def type_error_check_weight(self, request):
+        return request.param
+
+    def test_check_weight_type_error(self, type_error_check_weight):
+        with pytest.raises(TypeError, message="Expected TypeError"):
+            meal_maker.MakeMeal(type_error_check_weight)
+
+    def test_check_weight_value_error(self, value_error_check_weight):
+        with pytest.raises(ValueError, message="Expected Value Error"):
+            meal_maker.MakeMeal(value_error_check_weight)
+
+
     # Test assigned macronutrient percentages by body type
 
     @pytest.mark.parametrize("body_type, expected",
