@@ -69,6 +69,30 @@ class TestMakeMeal(object):
         with pytest.raises(ValueError, message="Expected ValueError"):
             meal_maker.MakeMeal(150, activity_level=activity_level, goal=goal)
 
+    @pytest.fixture(params=[0, -3, -10])
+    def value_error_cal(self, request):
+        return request.param
+
+    def test_check_min_cal_raises_value_error(self, value_error_cal):
+        with pytest.raises(ValueError, message="Expected ValueError"):
+            meal_maker.MakeMeal(150, body_type='mesomorph', min_cal=value_error_cal)
+
+    def test_check_max_cal_raises_value_error(self, value_error_cal):
+         with pytest.raises(ValueError, message="Expected ValueError"):
+            meal_maker.MakeMeal(150, body_type='mesomorph', max_cal=value_error_cal)
+    
+    @pytest.fixture(params=['', 'three', 10.5])
+    def type_error_cal(self, request):
+        return request.param
+
+    def test_check_min_cal_raises_type_error(self, type_error_cal):
+         with pytest.raises(TypeError, message="Expected TypeError"):
+            meal_maker.MakeMeal(150, body_type='mesomorph', min_cal=type_error_cal)
+
+    def test_check_max_cal_raises_type_error(self, type_error_cal):
+         with pytest.raises(TypeError, message="Expected TypeError"):
+            meal_maker.MakeMeal(150, body_type='mesomorph', max_cal=type_error_cal)
+
     # Test assigned macronutrient percentages by body type
 
     @pytest.mark.parametrize("body_type, expected",

@@ -60,6 +60,8 @@ class MakeMeal(object):
         self._check_body_type()
         self._set_optimum_calories()
         self._check_macronutrient_percentages()
+        self._check_min_cal()
+        self._check_max_cal()
 
     def _check_weight(self):
 
@@ -71,6 +73,22 @@ class MakeMeal(object):
             raise TypeError('Param weight must be type int.')
 
     #TODO Add check calorie for int
+
+    def _check_min_cal(self):
+        if self.min_cal is not None:
+            if isinstance(self.min_cal, int) is True:
+                if self.min_cal <=0:
+                    raise ValueError('Min_cal must be a positive integer.')
+            else:
+                raise TypeError('Min_cal must be of type int.')
+
+    def _check_max_cal(self):
+        if self.max_cal is not None:
+            if isinstance(self.max_cal, int) is True:
+                if self.max_cal <=0:
+                    raise ValueError('Max_cal must be a positive integer.')
+            else:
+                raise TypeError('Max_cal must be of type int.')
 
     def _check_body_type(self):
 
