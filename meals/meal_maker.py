@@ -102,13 +102,13 @@ class MakeMeal(object):
             
         if self.activity_level is not None and self.goal is not None:
 
-            if self.activity_level.casefold() == 'sedintary' and self.goal.casefold() == 'weight_loss':
+            if self.activity_level.casefold() == 'sedentary' and self.goal.casefold() == 'weight_loss':
                 self.min_cal = 10
                 self.max_cal = 12
-            elif self.activity_level.casefold() == 'sedintary' and self.goal.casefold() == 'maintenance':
+            elif self.activity_level.casefold() == 'sedentary' and self.goal.casefold() == 'maintenance':
                 self.min_cal = 12
                 self.max_cal = 14
-            elif self.activity_level.casefold() == 'sedintary' and self.goal.casefold() == 'weight_gain':
+            elif self.activity_level.casefold() == 'sedentary' and self.goal.casefold() == 'weight_gain':
                 self.min_cal = 16
                 self.max_cal = 18
             elif self.activity_level.casefold() == 'moderate' and self.goal.casefold() == 'weight_loss':
@@ -130,7 +130,7 @@ class MakeMeal(object):
                 self.min_cal = 20
                 self.max_cal = 22
             else:
-                raise ValueError("Please enter a valid goal; 'weight_loss', 'maintenance', 'weight_gain' or activity_level; 'sedintary', 'moderate', or 'very' alternatively, set these parameters to None.")
+                raise ValueError("Please enter a valid goal; 'weight_loss', 'maintenance', 'weight_gain' or activity_level; 'sedentary', 'moderate', or 'very' alternatively, set these parameters to None.")
 
     def _check_macronutrient_percentages(self):
         """Checks if the sum of macronuitrient percentages equals one hunderd percent."""
