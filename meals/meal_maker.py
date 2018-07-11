@@ -133,7 +133,7 @@ class MakeMeal(object):
                 raise ValueError("Please enter a valid goal; 'weight_loss', 'maintenance', 'weight_gain' or activity_level; 'sedintary', 'moderate', or 'very' alternatively, set these parameters to None.")
 
     def _check_macronutrient_percentages(self):
-        """Checks if the sum of macronuitrient percentages equal one."""
+        """Checks if the sum of macronuitrient percentages equals one hunderd percent."""
 
         if isinstance(self.fat_percent, float) is True and isinstance(self.protein_percent, float) is True and isinstance(self.carb_percent, float) is True:
             if self.fat_percent + self.protein_percent + self.carb_percent != 1:
