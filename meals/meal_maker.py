@@ -20,7 +20,7 @@ class MakeMeal(object):
             and fat_percent, protein_percent, carb_percent.
             This allows for the finest control over all parameters.
 
-        2) Preset calorie ranges; custom macronutrient percentages:
+        2) Preset calorie ranges custom macronutrient percentages:
 
             Pass a valid combination of goal and activity_level (see above)
             pass fat_percent, protein_percent, carb_percent manually.

@@ -1,8 +1,10 @@
 meals package
 =============
 
-Submodules
-----------
+.. automodule:: meals
+    :members:
+    :undoc-members:
+    :show-inheritance:
 
 meals.meal\_maker module
 ------------------------
@@ -13,10 +15,3 @@ meals.meal\_maker module
     :show-inheritance:
 
 
-Module contents
----------------
-
-.. automodule:: meals
-    :members:
-    :undoc-members:
-    :show-inheritance:

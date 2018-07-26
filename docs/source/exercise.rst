@@ -1,8 +1,10 @@
 exercise package
 ================
 
-Submodules
-----------
+.. automodule:: exercise
+    :members:
+    :undoc-members:
+    :show-inheritance:
 
 exercise.rm\_estimator module
 -----------------------------
@@ -13,10 +15,3 @@ exercise.rm\_estimator module
     :show-inheritance:
 
 
-Module contents
----------------
-
-.. automodule:: exercise
-    :members:
-    :undoc-members:
-    :show-inheritance:

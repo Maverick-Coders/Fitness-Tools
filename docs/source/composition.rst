@@ -1,8 +1,10 @@
 composition package
 ===================
 
-Submodules
-----------
+.. automodule:: composition
+    :members:
+    :undoc-members:
+    :show-inheritance:
 
 composition.bodyfat module
 --------------------------
@@ -13,10 +15,3 @@ composition.bodyfat module
     :show-inheritance:
 
 
-Module contents
----------------
-
-.. automodule:: composition
-    :members:
-    :undoc-members:
-    :show-inheritance:

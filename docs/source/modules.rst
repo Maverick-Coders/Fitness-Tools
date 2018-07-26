@@ -1,5 +1,5 @@
-Fitness Tools
-=============
+Complete Module Documentation
+=============================
 
 .. toctree::
    :maxdepth: 4
@@ -7,4 +7,3 @@ Fitness Tools
    composition
    exercise
    meals
-
