@@ -1,4 +1,4 @@
-from exercise import rm_estimator
+from fitness_tools.exercise import rm_estimator
 import pytest
 
 

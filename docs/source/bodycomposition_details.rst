@@ -6,8 +6,8 @@ This is a collection of the most popular bodyfat percentage equations calculated
 Here is the typical workflow for calculating bodyfat percentage from skinfold sites:
 
 1. Collect the measurements from the skinfold sites required by the equation you chose.  Appropriate skinfold sites can be found in the documentation_.
-2. Calculate body density. 
-3. Calculate bodyfat using the above body density value.    
+2. Calculate body density.
+3. Calculate bodyfat using the above body density value.
 
 Every subclass in this module inherits from the GenericCalculator class which has 5 methods that calculate bodyfat percentage from body density:
 
@@ -25,8 +25,8 @@ Here is a hypothetical example.
 
 A 40 year old female whose skinfold measurements in millimeters are:
 
-* triceps = 7 
-* biceps = 5 
+* triceps = 7
+* biceps = 5
 * subscapular = 4
 * suprailliac = 10
 
@@ -38,7 +38,7 @@ To instantiate classes in this module pass the following arguments in this order
 
 .. code-block:: python
 
-   >>> from composition.bodyfat import DurninWomersley
+   >>> from fitness_tools.composition.bodyfat import DurninWomersley
    >>> calc = DurninWomersley(40, 'female', (7, 5, 4, 10))
    >>> calc.body_density()
 
@@ -59,14 +59,14 @@ Lets do another run through.
 
 A 25 year old male skinfold measurements in millimeters are:
 
-* abdominal = 6 
+* abdominal = 6
 * triceps = 6
 * thigh = 8
 * suprailiac = 6
 
 .. code-block:: python
 
-   >>> from composition.bodyfat import JacksonPollock4Site
+   >>> from fitness_tools.composition.bodyfat import JacksonPollock4Site
    >>> calc = JacksonPollock4Site(25, 'male', (6, 5, 8, 6))
 
    # Calculates bodyfat directly
@@ -78,5 +78,3 @@ Our hypothetical male has a bodyfat percent of 5.2%.
 
 
 .. _documentation:
-
-   

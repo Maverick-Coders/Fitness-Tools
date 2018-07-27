@@ -1,4 +1,4 @@
-from composition import bodyfat
+from fitness_tools.composition import bodyfat
 import pytest
 
 
