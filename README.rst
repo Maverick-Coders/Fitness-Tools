@@ -15,7 +15,7 @@ For more in depth coverage see the `complete documentation`_.
 .. _complete documentation: https://fitness-tools.readthedocs.io
 
 Fitness Tools is a Python package that facilitates healthy lifestyles.
-Whether you're a wellness profesional, veteran gym rat, or just starting your fitness journey this package will benefit you.
+Whether you're a wellness professional, veteran gym rat, or just starting your fitness journey this package will benefit you.
 
 While being healthy requires personal investment, it also requires some complex calculations like:
 
@@ -53,12 +53,12 @@ And you will be well on your way solving these problems:
 
 * `Calculating Body Composition`_
 
-* `Guessing Repetions`_
+* `Guessing Repetitions`_
 
 * `Macronutrient Assignments`_
 
 .. _Calculating Body Composition: https://fitness-tools.readthedocs.io/en/latest/bodycomposition_details.html
-.. _Guessing Repetions: https://fitness-tools.readthedocs.io/en/latest/exercise_details.html
+.. _Guessing Repetitions: https://fitness-tools.readthedocs.io/en/latest/exercise_details.html
 .. _Macronutrient Assignments: https://fitness-tools.readthedocs.io/en/latest/macronutrients_details.html
 
 
@@ -71,15 +71,15 @@ How To Contribute
 
 * Finally, read our roadmap_ to see where this project is headed.
 
-All skill levels are wellcome and our maintiners will help you in whatever way we can.
+All skill levels are welcome and our maintainers will help you in whatever way we can.
 
-.. _contributing guidelines:
-.. _changelog:
-.. _roadmap:
+.. _contributing guidelines: https://fitness-tools.readthedocs.io/en/latest/contributing-link.html
+.. _changelog: https://fitness-tools.readthedocs.io/en/latest/changelog.html
+.. _roadmap: https://fitness-tools.readthedocs.io/en/latest/roadmap.html
 
 License
 -------
 
 This project is licensed under the `Apache 2.0 License`_.
 
-.. _Apache 2.0 License:
+.. _Apache 2.0 License: https://fitness-tools.readthedocs.io/en/latest/license-link.html
