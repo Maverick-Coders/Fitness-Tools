@@ -6,7 +6,7 @@ with open("README.rst", "r") as fh:
 setuptools.setup(
     name = 'fitness-tools',
     packages = setuptools.find_packages(),
-    version = '0.1.0',  # Ideally should be same as your GitHub release tag varsion
+    version = '0.1.1',  # Ideally should be same as your GitHub release tag varsion
     description = 'Healthy Lifestyles With Python',
     long_description = long_description,
     author = 'Maverick Coders',
