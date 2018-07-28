@@ -13,7 +13,7 @@ There are two functions of note here:
 
 Please review the documentation_ for a complete list of parameters and their accepted values.
 
-.. _documentation:
+.. _documentation: https://fitness-tools.readthedocs.io/en/latest/meals.html
 
 There is one class in this package, MakeMeal, and four ways to use it.  The only positional argument is weight and everything else is dictated by keyword arguments.
 Here is the usage ordered from most to least opinionated:

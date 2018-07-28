@@ -77,4 +77,4 @@ A 25 year old male skinfold measurements in millimeters are:
 Our hypothetical male has a bodyfat percent of 5.2%.
 
 
-.. _documentation:
+.. _documentation: https://fitness-tools.readthedocs.io/en/latest/composition.html
