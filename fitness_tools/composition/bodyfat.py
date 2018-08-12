@@ -32,6 +32,13 @@ class GenericCalculator(object):
 
     @abc.abstractmethod
     def bone_density(self):
+        """Abstract method to convert parameters into bone density.  Subclasses
+        provide the implementation for this method.
+
+        :raises: NotImplementedError: Indicates that the subclass has not implemented
+            the method.
+
+        """
         raise NotImplementedError('subclass must implement bone_density() method.')
 
 class BoneDensityMixin(object):
