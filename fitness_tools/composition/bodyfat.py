@@ -1,7 +1,7 @@
 import math
+import abc
 
-
-class GenericCalculator (object):
+class GenericCalculator(object):
     """The base class that all body fat calculations inherit from.
 
     :param age: Age as a positive, whole number
@@ -30,6 +30,21 @@ class GenericCalculator (object):
             if isinstance(s, int) is False or s <= 0:
                 raise ValueError('Skinfold measurements must be positive, whole numbers.')
 
+    @abc.abstractmethod
+    def bone_density(self):
+        """Abstract method to convert parameters into bone density.  Subclasses
+        provide the implementation for this method.
+
+        :raises: NotImplementedError: Indicates that the subclass has not implemented
+            the method.
+
+        """
+        raise NotImplementedError('subclass must implement bone_density() method.')
+
+class BoneDensityMixin(object):
+    """
+    Mixin class to convert bone density calculations to bodyfat calculations.
+    """
     # Convert body density to bodyfat
 
     def siri(self, body_density):
@@ -88,7 +103,7 @@ class GenericCalculator (object):
         return round(body_fat, 1)
 
 
-class DurninWomersley(GenericCalculator):
+class DurninWomersley(GenericCalculator, BoneDensityMixin):
     """Uses the Durnin Wormersley equation to calculate body density.
        Use triceps, biceps, subscapular, and suprailliac skinfold measurements.
 
@@ -140,7 +155,7 @@ class DurninWomersley(GenericCalculator):
         return density
 
 
-class JacksonPollock7Site(GenericCalculator):
+class JacksonPollock7Site(GenericCalculator, BoneDensityMixin):
     """Uses the Jackson Pollock 7 site  equation to calculate body density.
        Use chest, axilla, tricep, subscapular, abdominal, suprailiac, and thigh  measurements.
 
@@ -172,7 +187,7 @@ class JacksonPollock7Site(GenericCalculator):
         return density
 
 
-class JacksonPollock4Site(GenericCalculator):
+class JacksonPollock4Site(GenericCalculator, BoneDensityMixin):
     """Uses the Jackson Pollock 4 site equation to calculate body fat. Use abdominal, triceps, thigh, and suprailiac skinfolds.
 
     :param age: Age as a positive, whole number
@@ -203,7 +218,7 @@ class JacksonPollock4Site(GenericCalculator):
         return round(body_fat, 1)
 
 
-class JacksonPollock3Site(GenericCalculator):
+class JacksonPollock3Site(GenericCalculator, BoneDensityMixin):
     """Uses the Jackson Pollock 3 site equation to calculate body density.
        Use chest, triceps, and subscapular skinfolds for men and  triceps, thigh and suprailiac for women.
 
